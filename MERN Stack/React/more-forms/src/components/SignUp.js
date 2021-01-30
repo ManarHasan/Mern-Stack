@@ -13,31 +13,40 @@ const SignUp = (props) => {
             ...inputs,
             [e.target.name]: e.target.value
         })
-        console.log(inputs.firstName.length)
-        if(inputs.firstName.length < 3) {
-            setFirstNameError("First name must be longer than two characters")
-        } else {
-            setFirstNameError("")
+        if(inputs.firstName.length !== 0){
+            if(inputs.firstName.length < 3) {
+                setFirstNameError("First name must be longer than two characters")
+            } else {
+                setFirstNameError("")
+            }
         }
-        if(inputs.lastName.length < 3){
-            setLastNameError("Last name must be longer than two characters")
-        } else {
-            setLastNameError("")
+        if(inputs.lastName.length !== 0){
+            if(inputs.lastName.length < 3){
+                setLastNameError("Last name must be longer than two characters")
+            } else {
+                setLastNameError("")
+            }
         }
-        if(inputs.email.length < 5) {
-            setEmailError("Email must be at least 5 characters")
-        } else {
-            setEmailError("")
+        if(inputs.email.length !== 0) {
+            if(inputs.email.length < 5) {
+                setEmailError("Email must be at least 5 characters")
+            } else {
+                setEmailError("")
+            }
         }
-        if(inputs.password.length < 8) {
-            setPasswordError("Password must be at least 8 characters")
-        } else {
-            setPasswordError("")
+        if(inputs.password.length !== 0){
+            if(inputs.password.length < 8) {
+                setPasswordError("Password must be at least 8 characters")
+            } else {
+                setPasswordError("")
+            }
         }
-        if (inputs.confirm === inputs.password) {
-            setConfirmError("")
-        } else {
-            setConfirmError("Passwords do not match")
+        if(inputs.confirm.length !== 0){
+            if (inputs.confirm === inputs.password) {
+                setConfirmError("")
+            } else {
+                setConfirmError("Passwords do not match")
+            }
         }
     }
 
