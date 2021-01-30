@@ -6,6 +6,7 @@ const adStyle = {
     width: '640px',
     margin: '10px'
 }
+
 export class Advertisement extends Component {
     render() {
         return (
