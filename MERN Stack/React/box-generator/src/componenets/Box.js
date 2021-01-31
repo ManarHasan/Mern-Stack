@@ -6,7 +6,9 @@ const Box = (props) => {
         width: props.newHeight + 'px',
         background: props.newColor,
         display: 'inline-block',
-        margin: '10px'
+        margin: '10px',
+        border: '1px solid white',
+        borderRadius: "100%"
     }
     return (
         <div style={boxStyle}></div>
