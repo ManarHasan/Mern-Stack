@@ -6,7 +6,6 @@ const Tab = (props) => {
     const[open, setOpen] = useState(0);
     const onClickHandler = (e, i, str) => {
         setOpen(i);
-        alert(str)
     }
  
     return (
@@ -15,11 +14,11 @@ const Tab = (props) => {
                 <Button key = {i} variant="contained" color="primary" onClick={ (e) => onClickHandler(e, i, "this is an alert") }>Tab</Button>
             )}
             { open===1?
-            <p >{props.contents[0]}</p>
+            <p className="App-logo">{props.contents[0]}</p>
             :open ===2?
-            <p>{props.contents[1]}</p>
+            <p className="App-logo">{props.contents[1]}</p>
             :
-            <p>{props.contents[2]}</p>
+            <p className="App-logo">{props.contents[2]}</p>
         }
         </div>
     )
