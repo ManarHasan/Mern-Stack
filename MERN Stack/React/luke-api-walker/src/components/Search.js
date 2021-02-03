@@ -39,7 +39,22 @@ const Search = () => {
             <input type="text" name="id" placeholder="place the id here" onChange={changeHandler} />
             <input type="submit" value="Search"/>
             </form>
-            <p>{result.name}</p>
+            
+            {choice === 'planets' ?
+                <>
+                <p>{result.name}</p>
+                <p>{result.climate}</p>
+                <p>{result.diameter}</p>
+                <p>{result.population}</p>
+                </>
+            :
+                <>
+                <p>{result.name}</p>
+                <p>{result.birth_year}</p>
+                <p>{result.eye_color}</p>
+                <p>{result.gender}</p>
+                </>
+            }
         </div>
     )
 }
