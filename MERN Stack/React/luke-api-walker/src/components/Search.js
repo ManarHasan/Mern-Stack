@@ -7,12 +7,11 @@ const Search = () => {
     const[id, setId] = useState(0);
     const[choice, setChoice] = useState("");
     const[result, setResult] = useState([]);
+    const[error, setError] = useState("")
     useEffect(() => {
         axios.get('https://swapi.dev/api/planets/')
             .then(response =>{
                 setPlanets(response.data.results)
-                console.log(response.data)
-                console.log(planets)
     })
     }, []);
     const changeHandler = (e) => {
@@ -24,7 +23,8 @@ const Search = () => {
         axios.get('https://swapi.dev/api/'+choice+'/' + id +'/')
             .then(response => {
                 setResult(response.data)
-                console.log(response.data.results)
+            }).catch((error) => {
+                error.response ? setError("These aren't the droids you're looking for") : setError("Unidentified error")
             })
         
     }
@@ -54,6 +54,14 @@ const Search = () => {
                 <p>{result.eye_color}</p>
                 <p>{result.gender}</p>
                 </>
+            }
+            {error ?
+            <>
+            <p>{error}</p>
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/32/Ben_Kenobi.png"/>
+            </>
+            :
+            ''
             }
         </div>
     )
