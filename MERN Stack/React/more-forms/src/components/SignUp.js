@@ -8,7 +8,7 @@ const SignUp = (props) => {
     const [passwordError, setPasswordError] = useState('');
     const [confirmError, setConfirmError] = useState('');
 
-    const onChange = (e) => {
+    const x = (e) => {
         setInputs({
             ...inputs,
             [e.target.name]: e.target.value
@@ -34,17 +34,21 @@ const SignUp = (props) => {
                 setEmailError("")
             }
         }
-        if(inputs.password.length !== 0){
-            if(inputs.password.length < 8) {
+       
+            if(inputs.password.length !== 0 && inputs.password.length < 8) {
+                console.log(inputs.password)
                 setPasswordError("Password must be at least 8 characters")
             } else {
+                console.log(inputs.password)
                 setPasswordError("")
             }
-        }
+        
         if(inputs.confirm.length !== 0){
             if (inputs.confirm === inputs.password) {
+                console.log(inputs.confirm)
                 setConfirmError("")
             } else {
+                console.log(inputs.confirm)
                 setConfirmError("Passwords do not match")
             }
         }
@@ -53,31 +57,31 @@ const SignUp = (props) => {
     return (
         <div>
             <form>
-                First Name: <input type="text" name="firstName" onChange ={onChange}/>
+                First Name: <input type="text" name="firstName" onKeyUp ={x}/>
                 {
                     firstNameError ?
                     <p style={{color:'red'}}>{firstNameError}</p>
                     : ''
                 }
-                Last Name: <input type="text" name="lastName" onChange ={onChange}/>
+                Last Name: <input type="text" name="lastName" onKeyUp ={x}/>
                 {
                     lastNameError ?
                     <p style={{color:'red'}}>{lastNameError}</p>
                     : ''
                 }
-                Email: <input type="email" name="email" onChange ={onChange}/>
+                Email: <input type="email" name="email" onKeyUp ={x}/>
                 {
                     emailError ?
                     <p style={{color:'red'}}>{emailError}</p>
                     : ''
                 }
-                Password: <input type="password" name="password" onChange ={onChange} />
+                Password: <input type="password" name="password" onKeyUp ={x} />
                 {
                     passwordError ?
                     <p style={{color:'red'}}>{passwordError}</p>
                     : ''
                 }
-                Confrim: <input type="password" name="confirm" onChange ={onChange}/>
+                Confrim: <input type="password" name="confirm" onChange ={x}/>
                 {
                     confirmError ?
                     <p style={{color:'red'}}>{confirmError}</p>
