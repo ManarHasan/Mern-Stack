@@ -2,12 +2,14 @@ import React,{useState} from 'react'
 
 const TaskForm = (props) => {
     const [task, setTask] = useState({
+        id: 0,
         content: "",
         status: false
     });
     // var tasks = [];
     const taskHandler = (e) => {
         setTask({
+            id: props.theTasks.length,
             content: e.target.value,
             status: false
         });

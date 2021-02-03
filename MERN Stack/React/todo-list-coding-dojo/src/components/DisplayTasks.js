@@ -1,17 +1,18 @@
-import React,{useState} from 'react'
+import React,{useState} from 'react';
+import { Button, Checkbox } from '@material-ui/core';
 
-const DisplayTasks = (props) => {
+const DisplayTasks = ({theTasks, onDelete}) => {
     const[test, setTest] = useState(false);
-    const[tasks, setTasks] = useState(props.theTasks);
+    const[tasks, setTasks] = useState(theTasks)
 
     return (
         
-        <ul>
-            {props.theTasks.map((task, i) => {
+        <ul style={{listStyle: 'none'}}>
+            {theTasks.map((task, i) => {
             
-            return <><li key={i}><input key={i+"a"} type="checkbox" checked={task.status} onChange={e =>{ setTest(!test); return task.status = !task.status}}/></li>
-            <li key={i+"b"}><p key={i+"c"} className={task.status? "status" : ""}>{task.content}</p></li>
-            <li><button onClick={(i) => { console.log(tasks); return props.theTasks.splice(task, i)}}>Delete</button></li></>
+            return <><li key={i}><Checkbox inputProps={{ 'aria-label': 'Checkbox A' }} key={i+"a"} type="checkbox" checked={task.status} onChange={e =>{ setTest(!test); return task.status = !task.status}}/>
+            <p style={{display: 'inline-block', margin: '5px'}} key={i+"c"} className={task.status? "status" : ""}>{task.content}</p>
+            <Button variant="contained" color="primary" onClick={() => onDelete(task.id)}>Delete</Button></li></>
             })}
         </ul> 
         
