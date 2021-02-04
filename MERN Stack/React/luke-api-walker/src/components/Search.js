@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {navigate} from '@reach/router';
 import {InputLabel, Select, MenuItem} from '@material-ui/core';
 import React, {useState, useEffect} from 'react'
 
@@ -8,6 +9,7 @@ const Search = () => {
     const[choice, setChoice] = useState("");
     const[result, setResult] = useState([]);
     const[error, setError] = useState("")
+    const[homeplanet, setHomePlanet] = useState("")
     useEffect(() => {
         axios.get('https://swapi.dev/api/planets/')
             .then(response =>{
@@ -26,7 +28,11 @@ const Search = () => {
             }).catch((error) => {
                 error.response ? setError("These aren't the droids you're looking for") : setError("Unidentified error")
             })
-        
+        if(choice === 'people'){
+        axios.get(result.homeworld)
+        .then(response => setHomePlanet(response.name))
+        }
+        navigate('/' + choice + '/' + id)
     }
     return (
         <div>
@@ -53,6 +59,7 @@ const Search = () => {
                 <p>{result.birth_year}</p>
                 <p>{result.eye_color}</p>
                 <p>{result.gender}</p>
+                <p>homeworld: {homeplanet}</p>
                 </>
             }
             {error ?
