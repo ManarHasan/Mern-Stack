@@ -19,7 +19,7 @@ const Tab = (props) => {
     return (
         <StyleRoot>
             {props.contents.map((content, i) =>
-                <Button key = {i} variant="contained" color="primary" onClick={ (e) => onClickHandler(e, i, "this is an alert") }>Tab</Button>
+                <Button key = {i} variant="contained" color="primary" onClick={ (e) => onClickHandler(e, i, "this is an alert") }>Tab {i+1}</Button>
             )}
             { open===1?
             <p style={styles.bounce}>{props.contents[0]}</p>

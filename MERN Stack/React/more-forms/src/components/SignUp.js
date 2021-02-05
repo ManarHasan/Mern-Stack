@@ -8,7 +8,7 @@ const SignUp = (props) => {
     const [passwordError, setPasswordError] = useState('');
     const [confirmError, setConfirmError] = useState('');
 
-    const x = (e) => {
+    const changeHandler = (e) => {
         setInputs({
             ...inputs,
             [e.target.name]: e.target.value
@@ -57,31 +57,31 @@ const SignUp = (props) => {
     return (
         <div>
             <form>
-                First Name: <input type="text" name="firstName" onKeyUp ={x}/>
+                First Name: <input type="text" name="firstName" onKeyUp ={changeHandler}/>
                 {
                     firstNameError ?
                     <p style={{color:'red'}}>{firstNameError}</p>
                     : ''
                 }
-                Last Name: <input type="text" name="lastName" onKeyUp ={x}/>
+                Last Name: <input type="text" name="lastName" onKeyUp ={changeHandler}/>
                 {
                     lastNameError ?
                     <p style={{color:'red'}}>{lastNameError}</p>
                     : ''
                 }
-                Email: <input type="email" name="email" onKeyUp ={x}/>
+                Email: <input type="email" name="email" onKeyUp ={changeHandler}/>
                 {
                     emailError ?
                     <p style={{color:'red'}}>{emailError}</p>
                     : ''
                 }
-                Password: <input type="password" name="password" onKeyUp ={x} />
+                Password: <input type="password" name="password" onChange ={changeHandler} />
                 {
                     passwordError ?
                     <p style={{color:'red'}}>{passwordError}</p>
                     : ''
                 }
-                Confrim: <input type="password" name="confirm" onChange ={x}/>
+                Confrim: <input type="password" name="confirm" onChange ={changeHandler}/>
                 {
                     confirmError ?
                     <p style={{color:'red'}}>{confirmError}</p>
