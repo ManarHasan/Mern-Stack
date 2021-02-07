@@ -6,6 +6,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 20px;
+  background-image: url("https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb");
+  color:whitesmoke !important;
 }
 
 code {
@@ -21,10 +23,17 @@ form{
 
 form *{
   margin-left:15px;
+  color:whitesmoke !important;
 }
+
 form div {
   width: 100px !important;
 }
+
+form input {
+  color:black !important;
+}
+
 form button{
   margin:0;
 }
