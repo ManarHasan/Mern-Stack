@@ -4,7 +4,6 @@ import axios from 'axios';
 const Planet = (props) => {
     const [result, setResult] = useState("");
     const [error, setError] = useState("");
-    const [homeplanet, setHomePlanet] = useState("");
 
     useEffect(() => {
         axios.get('https://swapi.dev/api/planets/' + props.id +'/')

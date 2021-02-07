@@ -5,9 +5,43 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 20px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+form{
+  width: 500px;
+  margin: 50px 0 50px 500px;
+  display: flex;
+}
+
+form *{
+  margin-left:15px;
+}
+form div {
+  width: 100px !important;
+}
+form button{
+  margin:0;
+}
+
+div p{
+  margin-left: 500px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+div a{
+  margin-left: 500px;
+  display: flex;
+  flex-direction: column;
+}
+div img{
+  margin-left: 500px;
+  display: flex;
+  flex-direction: column;
 }

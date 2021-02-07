@@ -24,8 +24,11 @@ const Search = () => {
     return (
         
             <Form onSubmit={searchDone}>
-                <InputLabel id="choice">Planet or Person:</InputLabel>
+                <InputLabel id="choice">Select Category:</InputLabel>
                 <Select onChange={e => setChoice(e.target.value)} labelId="choice" id="choice">
+                    <MenuItem value="">
+                    <em>None</em>
+                    </MenuItem>
                     <MenuItem value='planets'>Planet</MenuItem>
                     <MenuItem  value='people'>Person</MenuItem>
                     <MenuItem  value='starships'>Starships</MenuItem>
