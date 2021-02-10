@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { navigate } from '@reach/router';
+import Form from './Form';
 
 const Update = (props) => {
     const { id } = props;
@@ -28,40 +29,24 @@ const Update = (props) => {
         navigate("/product/"+ id);
     }
 
+    const titleHandler = e => setTitle(e.target.value);
+
+    const priceHandler = e => setPrice(e.target.value);
+
+    const descriptionHandler = e => setDescription(e.target.value);
+
     return (
         <div>
             <h1>Update a Product: </h1>
-            <form onSubmit={updateProduct}>
-                <p>
-                    <label>Title: </label>
-                    <input
-                    type="text"
-                    name="title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    />
-                </p>
-                <p>
-                    <label>Price: </label>
-                    <input
-                    type="number"
-                    name="price"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    />
-                </p>
-                <p>
-                    <label>Description: </label>
-                    <textarea
-                    type="text"
-                    name="description"
-                    defaultValue={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    >
-                    </textarea>
-                </p>
-                <input type="submit" value="Update!"/>
-            </form>
+            <Form
+            title = {title}
+            price = {price}
+            description = {description} 
+            onSubmitHandler={updateProduct} 
+            titleHandler={titleHandler} 
+            priceHandler={priceHandler} 
+            descriptionHandler={descriptionHandler}
+            />
         </div>
     )
 }
